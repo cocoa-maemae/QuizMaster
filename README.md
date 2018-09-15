@@ -9,7 +9,7 @@ sudo docker pull centos
 ```
 * Run centos7 container
 ```
-sudo docker run --privileged -it -d -p 80:80 --name centos7 centos:latest /sbin/init
+sudo docker run --privileged -it -d -p 80:80 --name centos7 -h centos7 centos:latest /sbin/init
 ```
 * Login to centos7 container(After logined, assumed that user is always root)
 ```
