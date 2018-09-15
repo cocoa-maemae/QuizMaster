@@ -22,7 +22,7 @@ yum install -y git
 * Git clone QuizMaster
 ```
 cd /usr/local
-sudo git clone https://github.com/cocoa-maemae/QuizMaster
+git clone https://github.com/cocoa-maemae/QuizMaster
 ```
 * build environment
 ```
