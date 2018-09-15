@@ -11,5 +11,5 @@ sudo docker pull centos
 
 * Run centos7 container
 ```
-sudo docker run --privilege -it -p 80:80 <br>
+sudo docker run --privileged -it -d -p 80:80 --name centos7 centos:latest
 ```
