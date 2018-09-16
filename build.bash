@@ -1,16 +1,26 @@
 #/usr/bin/env bash
 
+mkdir tmp && mkdir tmp/cache && chmod -R 777 tmp && chmod -R 777 log
+
 # install essential pakcages
 yum install -y epel-release \
+  && yum -y update \
   && yum install -y sudo net-tools gcc gcc-c++ patch readline zlib make bzip2 autoconf automake libtool bison \
-  && yum install -y httpd sqlite
+  && yum install -y httpd sqlite nodejs
 
-# install essential pakcages for development
-arg=$@
-if [ ${arg} = 'dev' ]; then
-  yum install -y readline-devel zlib-devel libyaml-devel libffi-devel openssl-devel iconv-devel libyaml-devel libffi-devel \
-    && yum install -y httpd-devel sqlite-devel
-fi
+# install essential devel pakcages
+yum install -y curl-devel readline-devel zlib-devel libyaml-devel libffi-devel openssl-devel iconv-devel libyaml-devel libffi-devel \
+  && yum install -y httpd-devel sqlite-devel
+
+# nodejs and npm version up
+npm install -g n
+n latest
+ln -sf /usr/local/bin/node /usr/bin/node
+npm update -g npm
+ln -sf /usr/local/bin/npm /usr/bin/npm
+
+# install yarn
+npm install -g yarn
 
 # install rbenv
 if [ ! -e '/tmp/ruby-build/install.sh' ]; then
@@ -47,13 +57,21 @@ fi
 
 # install gem
 bundle install --path vendor/bundle
+ 
+# install passenger
+passenger -v &> /dev/null
+if [ $? -ne 0 ]; then
+  gem install -N passenger
+fi
 
 # passenger set up
 if [ ! -e '/etc/httpd/conf.d/passenger.conf' ]; then
-  /usr/bin/bash -lc "vendor/bundle/ruby/2.5.0/bin/passenger-install-apache2-module --auto --language=ruby"
-  /usr/bin/bash -lc "vendor/bundle/ruby/2.5.0/bin/passenger-install-apache2-module --snippet > /etc/httpd/conf.d/passenger.conf && echo 'RailsEnv production' >> /etc/httpd/conf.d/passenger.conf"
+  /usr/bin/bash -lc "passenger-install-apache2-module --auto --language=ruby"
+  /usr/bin/bash -lc "passenger-install-apache2-module --snippet > /etc/httpd/conf.d/passenger.conf && echo 'RailsEnv production' >> /etc/httpd/conf.d/passenger.conf"
 fi
 
+# apache set up
+cp -rp httpd/quiz_master.conf /etc/httpd/conf.d/
 systemctl restart httpd
 
 exit 0
