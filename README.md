@@ -1,4 +1,4 @@
-# cocoa-maemae QuizMaster set up
+# set up
 
 * install docker CE according to the public instruction<br>
 https://docs.docker.com/install/
