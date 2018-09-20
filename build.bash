@@ -1,5 +1,9 @@
 #/usr/bin/env bash
 
+# time zone
+timedatectl set-timezone Asia/Tokyo
+
+# make directories
 mkdir tmp && mkdir tmp/cache \
   && chmod -R 777 tmp && chmod -R 777 log
 
