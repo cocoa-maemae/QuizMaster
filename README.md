@@ -19,13 +19,13 @@ sudo docker exec -it centos7 bash
 ```
 yum install -y git
 ```
-* Git clone QuizMaster
+* Git clone quiz_master
 ```
 cd /usr/local
-git clone https://github.com/cocoa-maemae/QuizMaster
+git clone https://github.com/cocoa-maemae/quiz_master
 ```
 * build environment
 ```
-cd QuizMaster
+cd quiz_master
 ./build.bash
 ```
