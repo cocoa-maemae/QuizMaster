@@ -1,6 +1,7 @@
 #/usr/bin/env bash
 
-mkdir tmp && mkdir tmp/cache && chmod -R 777 tmp && chmod -R 777 log
+mkdir tmp && mkdir tmp/cache \
+  && chmod -R 777 tmp && chmod -R 777 log
 
 # install essential pakcages
 yum install -y epel-release \
@@ -73,5 +74,8 @@ fi
 # apache set up
 cp -rp httpd/quiz_master.conf /etc/httpd/conf.d/
 systemctl restart httpd
+
+# js package install
+yarn install
 
 exit 0
