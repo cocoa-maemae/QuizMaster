@@ -26,8 +26,6 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <!-- User Image -->
-                        <img src="<%= image_path '/assets/user2-160x160.jpg' %>" class="img-circle" alt="User Image">
                       </div>
                       <!-- Message title and timestamp -->
                       <h4>
@@ -166,7 +164,8 @@
         <small>registerd quiz list</small>
       </h1>
       <div>
-        contents here
+        </br>
+        <%= react_component('QuizManagement', quiz_list: @quiz_list) %>
       </div>
       <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-dashboard"></i>Quiz Master Admin</a></li>
@@ -188,10 +187,8 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
@@ -281,4 +278,3 @@ $(document).ready(function(){
   });
 });
 </script>
-

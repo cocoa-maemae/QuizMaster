@@ -82,4 +82,7 @@ systemctl restart httpd
 # js package install
 yarn install
 
+# create database
+sqlite3 db/production.sqlite3 "create table quizzes (quiz text, answer string, is_delete numeric);"
+
 exit 0
