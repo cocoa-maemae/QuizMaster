@@ -1,19 +1,13 @@
 import React from "react"
+import ReactDOM from 'react-dom'
+import ReactModal from 'react-modal'
 import PropTypes from "prop-types"
 
 class QuizManagement extends React.Component {
-
-  addTodo() {
-    const { quiz_list } = this.state
-    //quiz_list.push('追加したよ')
-    //this.setState({ quiz_list })
-  }
-
   render () {
     const { quiz_list } = this.props
     return (
       <React.Fragment>
-      <button type="button" className="btn btn-primary" onClick={() => this.addQuiz()}>Add Quiz</button>
       <table className="table table-striped">
         <thead>
           <tr>
@@ -39,7 +33,4 @@ class QuizManagement extends React.Component {
   }
 }
 
-QuizManagement.propTypes = {
-  greeting: PropTypes.string
-};
 export default QuizManagement

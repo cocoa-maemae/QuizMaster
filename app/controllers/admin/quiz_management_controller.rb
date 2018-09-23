@@ -1,12 +1,14 @@
 class Admin::QuizManagementController < ApplicationController
   def index
     @quiz_list = Quiz.select("rowid, quiz, answer").where("is_delete = 0");
-    #logger.debug(quiz_list.inspect)
     render '/admin/quiz_management/index'
   end
 
   def add
-
+    logger.debug(params.inspect)
+    quiz = Quiz.new(quiz: params[:question], answer: params[:answer], is_delete: 0)
+    quiz.save
+    redirect_to '/' and return
   end
 
   def delete

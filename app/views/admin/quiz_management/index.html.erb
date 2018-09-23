@@ -19,7 +19,6 @@
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
             <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
               <li>
                 <!-- inner menu: contains the messages -->
                 <ul class="menu">
@@ -27,13 +26,6 @@
                     <a href="#">
                       <div class="pull-left">
                       </div>
-                      <!-- Message title and timestamp -->
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <!-- The message -->
-                      <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
                   <!-- end message -->
@@ -165,6 +157,8 @@
       </h1>
       <div>
         </br>
+        <div id="addQuiz"></div>
+        <%= react_component('AddQuizModal') %>
         <%= react_component('QuizManagement', quiz_list: @quiz_list) %>
       </div>
       <ol class="breadcrumb">
@@ -175,9 +169,6 @@
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Your Page Content Here -->
-
     </section>
     <!-- /.content -->
   </div>
@@ -196,7 +187,6 @@
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
       <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
@@ -264,8 +254,6 @@
     </div>
   </aside>
   <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
