@@ -1,0 +1,29 @@
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+
+export default class FollowButton extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      relationship: props.relationship
+    }
+  }
+
+  render() {
+    <button>
+    return {
+      { this.props.relationship !== null ? 'Unfollow' : 'Follow' }
+    }
+    </button>
+  }
+}
+
+FollowButton.defaultProps = {
+  relationship: null
+}
+
+FollowButton.propTypes = {
+  user: PropTypes.object.isRequired,
+  relationship: PropTypes.object
+}

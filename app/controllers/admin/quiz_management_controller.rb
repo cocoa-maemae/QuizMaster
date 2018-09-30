@@ -8,7 +8,6 @@ class Admin::QuizManagementController < ApplicationController
     logger.debug(params.inspect)
     quiz = Quiz.new(quiz: params[:question], answer: params[:answer], is_delete: 0)
     quiz.save
-    redirect_to '/' and return
   end
 
   def delete

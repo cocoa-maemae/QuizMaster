@@ -1,7 +1,6 @@
-import React from "react"
+import React from 'react'
 import ReactDOM from 'react-dom'
-import ReactModal from 'react-modal'
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 
 class QuizManagement extends React.Component {
   render () {

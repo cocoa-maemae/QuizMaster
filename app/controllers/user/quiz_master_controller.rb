@@ -4,7 +4,10 @@ class User::QuizMasterController < ApplicationController
     render '/user/quiz_master/index'
   end
 
-  def answer
+  def start
+    render '/user/quiz_master/index'
+  end
 
+  def answer
   end
 end

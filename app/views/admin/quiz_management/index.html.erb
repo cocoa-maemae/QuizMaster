@@ -158,6 +158,10 @@
       <div>
         </br>
         <div id="addQuiz"></div>
+        <%= react_component('Counter') %>
+        <%#= react_component('counter', count: 10) %>
+        <%#= react_component('follow_button', user: @user.attributes, relationship: current_user.active_relationships.find_by{followed_id: @user.id)&.attributes) %>
+
         <%= react_component('AddQuizModal') %>
         <%= react_component('QuizManagement', quiz_list: @quiz_list) %>
       </div>
